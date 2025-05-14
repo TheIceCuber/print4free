@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>print4free</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>print4free</h1>
+    <p class="tagline">Get your 3D models printed for free — just submit your files and I’ll take care of the rest!</p>
+  </header>
+
+  <section class="card" id="about">
+    <h2>About</h2>
+    <p>Hello! I am offering *free* 3d printing services, provided the print meets these requirements:
+<br><br>
+        Number One: The print must be appropriate. <br>
+        This means no replica weapons. Something like a lightsaber or plane is fine, but no guns, knives, bombs, or anything like that. 
+        <br><br>
+        Number Two: The print must be small enough for me to print. <br>
+        The build plate of my printer is 250*250*260mm (W*D*H), but I will not be printing anything that big. I can always scale down the design to make it smaller, so let me know if you want any adjustments to the model! 
+        <br><br>
+        Number Three: Colors<br>
+        I will not always have a ton of colors, so don’t expect an exact color for your print! If you DO want a certain color, I will need funds to get that filament. In addition, multicolor prints ARE allowed, but might cause some trouble resulting in me denying them.
+        <br><br>
+        Number Four: Shipping<br>
+        If you would like shipping, I will require you to pay for shipping or provide a prepaid shipping label.
+        
+        <br>
+        <hr>
+        Now that you know what’s allowed, let’s get on to how you can actually get something printer!
+        <br><br>
+        If you want to find something to print I would recommend browsing a site such as thingiverse.com for models, and sending me a link to the one you would like. 
+        <br><br>
+        If you have your own model, feel free to send me a download link or send it via the google fourm. 
+        <br><br>
+        With all of this being free for everyone, it does cost me a fair bit of money, and time. Any donations would be GREATLY appreciated, and please leave a review sharing your experience. 
+        <br><br>
+        Thank you,<br>
+        -Josh
+        </p>
+  </section>
+
+  <section class="card" id="gallery">
+    <h2>Example Prints</h2>
+    <div class="gallery">
+      <img src="IMG_2333.png" alt="Example 1" />
+      <img src="IMG_2317.png" alt="Example 2" />
+      <img src="IMG_2313.png" alt="Example 3" />
+    </div>
+  </section>
+
+  <section class="card" id="request">
+    <h2>Request a Print</h2>
+    <p>Use the form below to submit your 3D model and details:</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVXb2lArgSx2zsU18FmOZ-jEekjn1CSQIDAFnWtc-jYEgUlQ/viewform?usp=dialog" target="_blank">
+      <button>Submit Print Request</button>
+    </a>
+  </section>
+
+  <section class="card" id="reviews">
+    <h2>Reviews</h2>
+    <p>Let others know what you thought of your print!</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeI0MWJlBSawja0ByFyhYD5pN-mWBRPgEymmHmn9hz8D57C-Q/viewform?usp=dialog     " target="_blank">
+      <button>Leave a Review</button>
+    </a>
+  
+    <div class="review-list">
+      <div class="review">
+        <h3>Alex G.</h3>
+        <p>The quality was amazing! Super friendly and quick to respond.</p>
+      </div>
+      <div class="review">
+        <h3>Samantha L.</h3>
+        <p>Got my custom part printed in just a few days. It fits perfectly. Highly recommend!</p>
+      </div>
+      <div class="review">
+        <h3>Marcus T.</h3>
+        <p>Didn’t expect free prints to be this good — thank you so much!</p>
+      </div>
+      <!-- Add more reviews manually here -->
+    </div>
+  </section>
+  
+
+  <section class="card" id="donate">
+    <h2>Support print4free</h2>
+    <p>If you’d like to help cover filament and maintenance costs, donations are appreciated:</p>
+    <a href="https://www.paypal.me/diamondsva" target="_blank">
+      <button>Donate via PayPal</button>
+    </a>
+  </section>
+  <script>
+    fetch("https://api.sheetbest.com/sheets/86b4ef6e-f8ea-4de4-a1d2-71dd7185d96c")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.querySelector(".review-list");
+        container.innerHTML = ""; // Clear existing content
+  
+        data.forEach(entry => {
+          const div = document.createElement("div");
+          div.className = "review";
+          div.innerHTML = `
+            <h3>${entry.Name}</h3>
+            <p>${entry.Review}</p>
+          `;
+          container.appendChild(div);
+        });
+      })
+      .catch(err => {
+        console.error("Failed to load reviews:", err);
+      });
+  </script>
+  
+  <footer>
+    <p>© 2025 print4free by Josh</p>
+  </footer>
+</body>
+</html>
